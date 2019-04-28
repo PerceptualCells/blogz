@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% content block %}
+
+<h3>Sign up to blog here:</h3>
+<p>
+    <form action="/validate" method="post">
+    <label>
+        email address:
+        <div><input type="text" name="email" value="{{ email }}"/><p id="error" class='error'>{% if e_errorr %}{{ e_error }}{% endif %}</p></div>
+    <label>
+        Password:
+        <div><input type="password" name="password"/><p id="error" class='error'>{% if p_error %}{{ p_error }}{% endif %}</p></div>
+    </label>
+    <label>
+        confirm password:
+        <div><input type="password" name="pass_verify"/><p id="error" class='error'>{% if p2_error %}{{ p2_error }}{% endif %}</p></div>
+    </label>
+    
+    <ul>
+        <li>Passwords must be alphanumeric, no spaces or special characters</li>
+            <li>between 3 and 20 characters long</li>
+        <li>Username must be alphanumeric, containing no spaces or special characters</li>
+            <li>between 3 and 20 characters long</li>
+    </ul>
+
+   
+    <input type="submit" value="Sign Up"/>
+    </form>
+</p> 
+
+
+
+{% endblock %}

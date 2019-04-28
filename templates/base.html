@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+             
+            <meta charset="UTF-8">
+            <meta name="Traversing the imaginal realms" content="dancing on dreamwaves and phazer beams">
+            <meta name="keywords" content="HTML,CSS">
+            <meta name="author" content="Mercury">
+            <meta name="viewport" content="width=device-width, initial-scale=0.8"> 
+        {% block head %}
+        <title>{% block title %} {% endblock %} - Build-a-blog</title>
+        {% endblock %}
+    </head>
+<body>
+
+    <nav>
+    
+     
+        <a href="/newpost"> Create a new post</a>
+      
+        <a href="/blog">Navigate posts</a>
+    
+    </nav>
+    <ul>
+    
+    </ul>    
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

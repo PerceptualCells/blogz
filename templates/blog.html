@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%if new_blog != null %}
+<h1>{{new_blog.blog_title}}</h1>
+<hr/>
+<p>{{new_blog.body}}</p>
+<br>
+<br>
+{% endif %}
+{% if blogs|length == 0 %}
+<p><a href='/newpost'>Make your new post</a></p>
+{% else %}
+
+<ul>
+    {% for blog in blogs %}
+        <li><a href="/individual_post?id={{blog.id}}" >{{blog.blog_title}}</a>
+        <hr/>
+        {{blog.body}}            
+        <form method="POST" action="/delete-entry" style="display:inline-block;">
+            <input type="hidden" name="blog-id" value="{{blog.id}}" />
+            <input type="submit" value="deletepost" />
+        </form>
+        </li>
+        <br>
+        <br>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% endblock %}
