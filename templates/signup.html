@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Register For a Blog</h1>
+<form action="/signup" method="post">
+    <table>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td>
+                <input name="name" type="text" value="{{ name }}"><p id="error" class='error'>{% if e_errorr %}{{ e_error }}{% endif %}</p></div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="pseudo_name">Handle</label></td>
+            <td>
+                <input name="pseudo_name" type="text" value="{{ pseudo_name }}">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="hashed_pass">Password</label></td>
+            <td>
+                <input name="hashed_pass" type="password"><p id="error" class='error'>{% if p_error %}{{ p_error }}{% endif %}</p></div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="verify">Verify Password</label></td>
+            <td>
+                <input name="verify" type="password"><p id="error" class='error'>{% if p2_error %}{{ p2_error }}{% endif %}</p></div>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Register">
+</form>
+
+{% endblock %}

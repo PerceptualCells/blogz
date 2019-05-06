@@ -2,11 +2,9 @@
 
 {% block content %}
 
-<ul>
-    {% for blog in blogs %}
-        <li><a href="/individual_post?id={{blog.id}}" >{{blog.blog_title}}</a>
+{% for blog in blogger.blogs %}
+        <li><a href="/singleuser?id={{blog.id}}" >{{blog.blog_title}}</a>
         <hr/>
-        {{user.blogs}}
         <!--
         {% if user in session  %}            
         <form method="POST" action="/delete-entry" style="display:inline-block;">
@@ -18,6 +16,7 @@
         <br>
         <br>
     {% endfor %}
-</ul>
+
+
 
 {% endblock %}

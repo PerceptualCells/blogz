@@ -1,0 +1,16 @@
+Blogz
+
+- Login - 
+
+Ask for a username, a password and a confirmation of that password
+- check on the client side for the base level needs of the username and password 
+	IF I am able to code this well
+- check on the server side for any reasonable errors and provide feedback to the user.
+
+
+- provide useful feedback for any error the user makes
+
+- Logout - 
+
+# remove the user from the session
+# return the user to the authors list

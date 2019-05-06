@@ -4,7 +4,7 @@
             <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
              
             <meta charset="UTF-8">
-            <meta name="Traversing the imaginal realms" content="dancing on dreamwaves and phazer beams">
+            <meta name="Traversing the imaginal realms" content="blog posts">
             <meta name="keywords" content="HTML,CSS">
             <meta name="author" content="Mercury">
             <meta name="viewport" content="width=device-width, initial-scale=0.8"> 
@@ -15,12 +15,18 @@
 <body>
 
     <nav>
+        <a href="/">Home</a>
+        <a href="/blog">Blogs</a>
     
-     
-        <a href="/newpost"> Create a new post</a>
-      
-        <a href="/blog">Navigate posts</a>
-    
+    {% if id in session %}
+        <a href="/newpost"> Create a new post</a> |
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/signup">Sign Up!</a> | 
+        <a href="/login">Log In</a>    
+    {% endif  %}
+        
+   
     </nav>
     <ul>
     

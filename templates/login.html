@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Login to Blogz</h1>
+<p>If you don't have an account, you may <a href="/signup">register</a> for one</p>
+<form action="/login" method="post">
+    <table>
+        <tr></tr>
+        {% with messages = get_flashed_messages() %}
+            {% for messages in messages %}
+                {{messages}}
+            {% endfor %}
+        {% endwith %}
+            <td><label for="name">Name:</label></td>
+            <td>
+                <input name="name" type="text" value="{{ name }}">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="hashed_pass">Password</label></td>
+            <td>
+                <input name="hashed_pass" type="password">
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Login">
+</form>
+{% endblock %}

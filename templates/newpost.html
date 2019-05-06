@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if not new_blog %}
 <h1>Write a new blog post</h1>
 <form method='POST' action="/newpost">
     <label>
@@ -20,7 +20,12 @@
     </label>
     <input type="submit" value='newpost' />
 </form>
+{% else %}
 
+<h1>{{new_blog.blog_title}}</h1>
+<hr/>
+<p>{{new_blog.body}}</p>
+{% endif %}
 {% endblock %}
 
 
