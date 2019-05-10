@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>
+    Bloggers of raspberry syrup
+</h1>
 <ul>
     {% for user in users %}
-        <li><a href="/singleuser?id={{user.id}}" >{{user.pseudo_name}}</a>
+        <li><a href="/singleuser?id={{user.id}}" >{{user.username}}</a>
         <hr/>
         </li>
         <br>

@@ -6,23 +6,21 @@
 <form action="/login" method="post">
     <table>
         <tr></tr>
-        {% with messages = get_flashed_messages() %}
-            {% for messages in messages %}
-                {{messages}}
-            {% endfor %}
-        {% endwith %}
-            <td><label for="name">Name:</label></td>
+            <td><label for="username">Name:</label></td>
             <td>
-                <input name="name" type="text" value="{{ name }}">
+                <input name="username" type="text" value="{{ username }}">
             </td>
         </tr>
         <tr>
-            <td><label for="hashed_pass">Password</label></td>
+            <td><label for="password">Password</label></td>
             <td>
-                <input name="hashed_pass" type="password">
+                <input name="password" type="password">
             </td>
         </tr>
     </table>
     <input type="submit" value="Login">
+    {% if error %}
+        <p id="error" class='error'>{{ error }}</p></div>
+    {% endif %}
 </form>
 {% endblock %}

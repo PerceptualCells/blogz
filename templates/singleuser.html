@@ -4,6 +4,8 @@
 
 {% for blog in blogger.blogs %}
         <li><a href="/singleuser?id={{blog.id}}" >{{blog.blog_title}}</a>
+        <br>
+        {{blog.body}}
         <hr/>
         <!--
         {% if user in session  %}            
