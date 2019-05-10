@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for blog in blogger.blogs %}
-        <li><a href="/singleuser?id={{blog.id}}" >{{blog.blog_title}}</a>
+        <li><a href="/individual_post?id={{blog.id}}" >{{blog.blog_title}}</a>
         <br>
         {{blog.body}}
         <hr/>
@@ -17,7 +17,7 @@
         </li>
         <br>
         <br>
-    {% endfor %}
+{% endfor %}
 
 
 

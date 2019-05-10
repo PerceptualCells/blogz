@@ -49,7 +49,7 @@ def require_login():
     #if 'id' in session and request.endpoint is 'login':
     #    msg = 'already logged in'
 
-    allowed_routes =['login', 'blog', 'individual_post', 'signup', 'index']    
+    allowed_routes =['login', 'blog', 'individual_post', 'signup', 'index', 'singleuser']    
     if request.endpoint not in allowed_routes and 'id' not in session:
         return redirect('/login')
 
@@ -69,6 +69,7 @@ def newpost():
     if request.method == 'POST':
         own = session['id']
         owner_id = User.query.get(own)
+
         blog_title = request.form['title']
         body = request.form['body']
 
@@ -89,8 +90,10 @@ def newpost():
             db.session.add(new_blog)
             db.session.commit()
             holder = Blog.query.get(new_blog.id)
+            user = User.query.get(new_blog.owner_id)
+            name = user.username
              
-            return render_template('newpost.html', new_blog = new_blog, sess=session.get('id',''))
+            return render_template('newpost.html', new_blog = new_blog, name = name, sess=session.get('id',''))
     else:     
         return render_template('newpost.html',title="Blog posts", sess=session.get('id',''))
 
@@ -101,8 +104,10 @@ def individual_post():
 
     link = int(request.args.get('id'))
     blogger = Blog.query.get(link)
+    user = User.query.get(blogger.owner_id)
+    name = user.username
 
-    return render_template('individual_post.html', blogger=blogger, sess=session.get('id',''))
+    return render_template('individual_post.html', blogger=blogger, author=name, sess=session.get('id',''))
 
 
 @app.route('/blog', methods=['POST', 'GET'])
